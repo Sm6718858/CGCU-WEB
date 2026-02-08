@@ -7,13 +7,15 @@
 
 <body>
     
-    <form id="loginForm">
+    <form id="loginForm" novalidate>
         <h1 class="heading-login">Login Page</h1>
         <label for="username" class="l1">Username:</label>
-        <input type="email" id="username" required><br><br>
+        <input type="email" id="username" required>
+        <small class="error" id="emailError"></small><br><br>
         
         <label for="password">Password:</label>
-        <input type="password" id="password" required><br><br>
+        <input type="password" id="password" required>
+        <small class="error" id="passwordError"></small><br><br>
 
         <button type="submit" class="submitbutton">Submit</button>
         <a href="index.html">Back</a>
