@@ -28,13 +28,20 @@ formHandle.addEventListener("submit", (e) => {
   } else if (password.length < 6) {
     passwordError.textContent = "Password must be at least 6 characters";
     isValid = false;
-  }
+  }]
 
   if (isValid) {
     console.log("Form is valid Babu");
-
+    localStorage.setItem("email", email);
     console.log("Email:", email);
     console.log("Password:", password);
+
+    const successMessage = document.querySelector(".successLogin");
+    successMessage.textContent = "Login successful! redirecting.....";
+
+    setTimeout(()=>{
+      window.location.href = "index.html";
+    },5000);
 
     alert(`Email: ${email}\nPassword: ${password}`);
   }
