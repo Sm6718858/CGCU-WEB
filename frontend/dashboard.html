@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .main {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .logout-btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #ef4444;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1 class="main">Welcome to Dashboard Babu 💕</h1>
+
+            <p class="desc">
+                This is your control panel.
+                You can manage users, monitor data and control operations easily.
+            </p>
+
+            <button class="logout-btn">Logout</button>
+        </div>
+    </div>
+    <script>
+
+        const email = localStorage.getItem("email");
+        if (!email) {
+            window.location.href = "login.html";
+        }
+        document.querySelector(".logout-btn").addEventListener("click", () => {
+            localStorage.removeItem("email");
+            window.location.href = "login.html";
+        });
+
+    </script>
+
+</body>
+
+</html>

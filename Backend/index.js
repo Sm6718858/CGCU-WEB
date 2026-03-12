@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import AuthenticationRoute from './Routes/authentication.js';
 
 
 const app = express();
@@ -9,34 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get('/', (req, res) => {
-  res.send("Backend is running");
-});
+app.use('/api',AuthenticationRoute);
 
-app.post('/login', (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-//   console.log(email,password);
-  
-  if (!email || !password) {
-    return res.status(400).json({
-      success: false,
-      message: "Email and password required"
-    });
-  }
-
-  if (email === "sm@gmail.com" && password === "1234") {
-    return res.status(200).json({
-      success: true,
-      message: "Login successful"
-    });
-  }
-
-  return res.status(401).json({
-    success: false,
-    message: "Invalid credentials"
-  });
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

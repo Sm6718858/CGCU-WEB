@@ -3,11 +3,11 @@ let formHandle = document.getElementById("loginForm");
 formHandle.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("username").value.trim();
+  const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
 
   try {
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch("http://localhost:5000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -25,7 +25,7 @@ formHandle.addEventListener("submit", async (e) => {
       const successMessage = document.querySelector(".successLogin");
       successMessage.textContent = "Login successful!";
       setTimeout(()=>{
-        window.location.href = "index.html";
+        window.location.href = "dashboard.html";
       },1000);
     }
     if(data.success === false){

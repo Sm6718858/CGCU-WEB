@@ -3,40 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="signup.css">
 </head>
 
 <body>
 
 <div class="mainCard">
-    <form class="loginForm" id="loginForm" novalidate>
-        <h1>Login</h1>
-
+    <form class="loginForm" novalidate>
+        <h1>Sign Up</h1>
+        
         <label class="heading">Email</label>
         <input id="email" type="email" required>
-
+        
         <label class="heading">Password</label>
         <input id="password" type="password" required>
-
-        <button type="submit" class="submitbutton">Login</button>
-
+        
+        <label class="heading">Phone</label>
+        <input id="phone" type="tel" required>
+        
+        <button type="submit" class="submitbutton">Submit</button>
+        
         <div class="link">
-            <a href="signup.html">Create new account</a>
+            <a href="login.html">Already have an account?</a>
         </div>
-
-        <p class="successLogin"></p>
-        <p class="errorLogin"></p>
-
     </form>
-
     <div class="sidePhoto">
-        <img src="SignupImage.webp" class="image" alt="Login Image">
+        <img src="SignupImage.webp" class="image" alt="Signup Image">
     </div>
 
 </div>
 
-<script src="login.js"></script>
-
+<script src="signup.js"></script>
 </body>
 </html>
