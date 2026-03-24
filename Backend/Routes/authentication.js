@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+import jwt from "jsonwebtoken"
 
 const router = express.Router();
 
@@ -59,18 +59,26 @@ router.post('/login', (req, res) => {
   const { email, password } = req.body;
   //   console.log(email,password);
 
+  
   if (!email || !password) {
     return res.status(400).json({
       success: false,
       message: "Email and password required"
     });
   }
+  const tokenGenerate = jwt.sign(
+   { email: email },      
+   "shivam@",               
+   { expiresIn: "1h" }     
+ );
+ 
   const FileData = fs.readFileSync(filePath, "utf-8");
   const UserData = JSON.parse(FileData);
 
   if (UserData.find((user) => user.email === email && user.password === password)) {
     return res.status(200).json({
       success: true,
+      token:tokenGenerate,
       message: "Login successful"
     });
   }

@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import AuthenticationRoute from './Routes/authentication.js';
+import jwt from 'jsonwebtoken'
 
 
 const app = express();
